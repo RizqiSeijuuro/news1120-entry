@@ -453,6 +453,8 @@ def write_png(path, width, height, rgb):
 
 
 def main():
+    # Deterministic render: no RNG, no network, no wall-clock-dependent
+    # content, so re-running this always produces byte-identical PNG bytes.
     render()
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR") or "/output"
     os.makedirs(out_dir, exist_ok=True)
